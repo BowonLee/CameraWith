@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DearPhotograph</string>
+    <string name="app_name">CameraWith</string>
     <string name="request_caemra_permission">This app needs camera permission</string>
     <string name="request_locate_permission">This app needs locate permission</string>
     <string name="request_memory_permission">This app needs memory permission</string>

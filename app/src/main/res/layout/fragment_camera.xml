@@ -104,13 +104,12 @@
             android:id="@+id/checkbox_fragment_camera_facing"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:layout_alignTop="@+id/btn_fragment_camera_more_option"
             android:layout_alignEnd="@id/checkbox_fragment_timer_activate"
+            android:layout_alignTop="@+id/btn_fragment_camera_more_option"
             android:layout_marginEnd="46dp"
-            android:button="@drawable/selector_fragment_camera_facing"
-            android:elevation="10dp"
             android:background="@drawable/selector_btn_circle_background"
-            />
+            android:button="@drawable/selector_fragment_camera_facing"
+            android:elevation="10dp" />
 
 
 

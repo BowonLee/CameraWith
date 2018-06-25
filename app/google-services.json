@@ -1,39 +1,43 @@
 {
   "project_info": {
-    "project_number": "196406889553",
-    "firebase_url": "https://dearphotograph-f0ef3.firebaseio.com",
-    "project_id": "dearphotograph-f0ef3",
-    "storage_bucket": "dearphotograph-f0ef3.appspot.com"
+    "project_number": "123514215914",
+    "firebase_url": "https://camerawith-da6ac.firebaseio.com",
+    "project_id": "camerawith-da6ac",
+    "storage_bucket": "camerawith-da6ac.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:196406889553:android:01869c7d66f8d7ca",
+        "mobilesdk_app_id": "1:123514215914:android:517f5a38f8c74b61",
         "android_client_info": {
-          "package_name": "com.bowonlee.dearphotograph"
+          "package_name": "com.bowonlee.camerawith"
         }
       },
       "oauth_client": [
         {
-          "client_id": "196406889553-3lftq0ijtevem27v4issjjg1njfitobp.apps.googleusercontent.com",
+          "client_id": "123514215914-6ilvmrq4k0q57h5luefno26f8ksjmjo1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.bowonlee.dearphotograph",
+            "package_name": "com.bowonlee.camerawith",
+            "certificate_hash": "76255a69abd6619de69f18d6c66382d002d7286f"
+          }
+        },
+        {
+          "client_id": "123514215914-mnhbe443acosog9jushbt8thn802co2q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bowonlee.camerawith",
             "certificate_hash": "5ff4fc4ebef59968e10958a2cd0fc63fc4edfb37"
           }
         },
         {
-          "client_id": "196406889553-tlq6m7plfacho2c0arl62ph26g4qjc3c.apps.googleusercontent.com",
-          "client_type": 3
-        },
-        {
-          "client_id": "196406889553-tlq6m7plfacho2c0arl62ph26g4qjc3c.apps.googleusercontent.com",
+          "client_id": "123514215914-n4tsi4mvtt428lbb6b1a26dsculf29vg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBB_EIz9AYRmvispdcoN1YZsT0Zi_yncSE"
+          "current_key": "AIzaSyD8A6TFt-urKFekqA_wV92W_LTif33P5I0"
         }
       ],
       "services": {
@@ -44,7 +48,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "196406889553-tlq6m7plfacho2c0arl62ph26g4qjc3c.apps.googleusercontent.com",
+              "client_id": "123514215914-n4tsi4mvtt428lbb6b1a26dsculf29vg.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

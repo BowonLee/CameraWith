@@ -31,25 +31,20 @@
 
         <RadioButton
             android:id="@+id/radioButton_ratio_916"
-            android:layout_width="40dp"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:button="@null"
+            android:checked="true"
             android:elevation="10dp"
             android:text=" 9:16 "
             android:textAlignment="center"
-            android:background="@drawable/selector_radio_btn_background"
-            android:textSize="15sp"
-
-            />
+            android:textSize="15sp" />
 
         <RadioButton
             android:id="@+id/radioButton_ratio_34"
-            android:layout_width="40dp"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/selector_radio_btn_background"
-            android:button="@null"
             android:elevation="10dp"
             android:text=" 3:4 "
             android:textAlignment="center"
@@ -58,11 +53,9 @@
 
         <RadioButton
             android:id="@+id/radioButton_ratio_11"
-            android:layout_width="40dp"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/selector_radio_btn_background"
-            android:button="@null"
             android:elevation="10dp"
             android:text=" 1:1 "
             android:textSize="15sp"
@@ -98,6 +91,7 @@
                 android:id="@+id/radioButton_whitebalance_auto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:text="auto" />
 
             <RadioButton
@@ -144,22 +138,25 @@
         android:orientation="horizontal"
         android:id="@+id/radioGroup_timerSecond"
         >
+
         <RadioButton
             android:id="@+id/radioButton_timersec_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="type1"
-            />
+            android:checked="true"
+            android:text="3sec " />
+
         <RadioButton
             android:id="@+id/radioButton_timersec_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="type2"/>
+            android:text="5sec" />
+
         <RadioButton
             android:id="@+id/radioButton_timersec_10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="type3"/>
+            android:text="10sec" />
     </RadioGroup>
     
     <Space

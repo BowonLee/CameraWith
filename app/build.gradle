@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.bowonlee.dearphotograph"
+        applicationId "com.bowonlee.camerawith"
         minSdkVersion 21
         targetSdkVersion 26
         multiDexEnabled true
@@ -32,7 +32,7 @@ dependencies {
     implementation ('com.github.krokyze:ucropnedit:2.2.3'){
         transitive = true
     }
-    implementation 'com.google.firebase:firebase-core:11.8.0'
+    compile 'com.google.firebase:firebase-core:16.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
