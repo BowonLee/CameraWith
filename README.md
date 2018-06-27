@@ -13,7 +13,7 @@ https://drive.google.com/open?id=1o7yDUmlM3dTZwtv_wVFlD38rgsWR8qx9
 
 ## Used <a href="https://github.com/Yalantis/uCrop#license" title="U-crop">U-crop</a> in ImageCrop component
 
-Copyright 2018, BowonLee
+Copyright 2017, Yalantis
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
