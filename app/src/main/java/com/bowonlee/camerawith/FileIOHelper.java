@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Log;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;

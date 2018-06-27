@@ -8,6 +8,7 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import com.bowonlee.camerawith.BasePhotoDrawerView;
 import com.bowonlee.camerawith.models.ModifiedPhoto;
@@ -180,6 +181,7 @@ public class MainPhotoDrawerView extends BasePhotoDrawerView implements View.OnT
                     if(Math.abs(mDistanceRateChange)>TOLERANCE_PINCH) {
                         float ratio = ((float) mPhotoBitmap.getWidth() - mDistanceRateChange / 2) / mModifiedPhoto.getOutSize().getWidth();
                         if(ratio < 1.0&&calculateMaxSize(ratio)){ mModifiedPhoto.setRatio(ratio);}
+                        else{ Toast.makeText(getContext(),"max size",Toast.LENGTH_SHORT).show();}
                         this.postInvalidate();
 
                     }

@@ -32,7 +32,6 @@
         android:layout_height="match_parent"
 
         android:adjustViewBounds="true"
-        android:background="@drawable/image_border"
         android:cropToPadding="true"
         android:padding="30dp"
         android:scaleType="centerInside" />
