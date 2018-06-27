@@ -63,7 +63,8 @@ public class PreviewResultFragment extends Fragment {
         ));
 
         mPreviewResultView.setPhoto(mModifiedPhoto);
-        mParentLayout.addView(mPreviewResultView);
+        mParentLayout.addView(mPreviewResultView,new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, mCapturedBitmap.getHeight()));
+
 
         mButtonSaveImage = (ImageButton)view.findViewById(R.id.btn_fragment_preview_result_save);
         mButtonCancel = (ImageButton)view.findViewById(R.id.btn_fragment_preview_result_cancel);

@@ -44,7 +44,7 @@ public class BitmapSaver implements Runnable{
 
 
         mFileIOHelper = new FileIOHelper();
-        mFile = new File(mFileIOHelper.getAlbumStorageDir("DearPhotograph"),mFileName);
+        mFile = new File(mFileIOHelper.getAlbumStorageDir("CameraWith"),mFileName);
 
         FileOutputStream output = null;
 
