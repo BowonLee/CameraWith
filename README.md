@@ -1,5 +1,5 @@
 # CameraWith
- This repository is release version of CameraWith
+ This repository is release version of CameraWith app
 
 ## GoogleDrive 
 
