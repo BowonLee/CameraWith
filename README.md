@@ -5,11 +5,11 @@
 https://drive.google.com/open?id=1o7yDUmlM3dTZwtv_wVFlD38rgsWR8qx9
 
 
-## DESIGN LICENCE
+## DESIGN LICENSE
 
 <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
-# LICENCE
+# LICENSE
 
 ## Used <a href="https://github.com/Yalantis/uCrop#license" title="U-crop">U-crop</a> in ImageCrop component
 
