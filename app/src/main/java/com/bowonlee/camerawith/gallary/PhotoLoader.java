@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 
+import com.bowonlee.camerawith.R;
 import com.bowonlee.camerawith.models.Photo;
 
 import java.util.ArrayList;
@@ -23,17 +24,28 @@ public class PhotoLoader extends AsyncTaskLoader<List<Photo>>{
     private String selection ;
     private String[] selectionArgs ;
 
-    public PhotoLoader(Context context) {
+    private String albumName;
+
+    public PhotoLoader(Context context,String albumName) {
         super(context);
         contentResolver = context.getContentResolver();
+        this.albumName = albumName;
     }
+
 
     @Override
     public List<Photo> loadInBackground() {
         tableUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         projection = new String[]{MediaStore.Images.Media.DATA, MediaStore.Images.Media._ID};
-        selection = null ;// return all row
-        selectionArgs = null;
+
+        if(albumName == getContext().getString(R.string.gallary_all_albums)){
+            selection = null;
+            selectionArgs = null;
+        }else{
+            selection = MediaStore.Images.Media.BUCKET_DISPLAY_NAME + "=?";
+            selectionArgs = new String[]{albumName};
+        }
+
 
         Cursor imageCursor = contentResolver.query(tableUri,projection,selection,selectionArgs, MediaStore.MediaColumns.DATE_ADDED + " desc");
         ArrayList<Photo> result = new ArrayList<>(imageCursor.getCount());

@@ -14,5 +14,8 @@
     <!-- StringValues for intent-->
     <string name ="parcelable_result">parcelable result</string>
 
+    <!-- StringValues for Gallary-->
+    <string name="gallary_all_albums">All Photo</string>
+
 
 </resources>

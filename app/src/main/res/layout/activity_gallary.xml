@@ -6,20 +6,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="30dp">
 
-        <TextView
+
+        <Spinner
+            android:id="@+id/spinner_gallary_albumlist"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="#FF0000"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:gravity="right"
+
             />
 
 
+    </RelativeLayout>
 
-    </LinearLayout>
 
 
     <android.support.v7.widget.RecyclerView
