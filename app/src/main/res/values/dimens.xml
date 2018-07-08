@@ -10,5 +10,19 @@
     <dimen name="drawer_text_size">15sp</dimen>
     <dimen name="drawer_text_padding">8dp</dimen>
 
+    <dimen name="elevation_btn">10dp</dimen>
+    <dimen name="elevation_progress">10dp</dimen>
+    <dimen name="margin_option_panel_bottomsheet">5dp</dimen>
+    <dimen name="space_option_panel_bottomsheet_bottom">200dp</dimen>
+    <dimen name="space_option_panel_bottomsheet_top">30dp</dimen>
+    <dimen name="textsize_option_panel_bottomsheet_option_title">20sp</dimen>
+    <dimen name="textsize_option_panel_bottomsheet_item">15sp</dimen>
+    <dimen name="size_btn_small_36">36dp</dimen>
+    <dimen name="size_btn_middle_48">48dp</dimen>
+    <dimen name="size_btn_large_53">53dp</dimen>
+
+    <dimen name="padding_camera_option_panel">50dp</dimen>
+    <dimen name="margin_camera_button_bottom">60dp</dimen>
+
 
 </resources>

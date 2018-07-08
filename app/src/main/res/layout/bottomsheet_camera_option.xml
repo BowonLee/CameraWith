@@ -5,22 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="50dp"
+    android:paddingBottom="@dimen/padding_camera_option_panel"
     >
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        android:layout_height="@dimen/space_option_panel_bottomsheet_top" />
 
     <!-- Aspect Ratio-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/camera_option_aspect_ratio"
-        android:layout_margin="5dp"
+        android:layout_margin="@dimen/margin_option_panel_bottomsheet"
         android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textSize="@dimen/textsize_option_panel_bottomsheet_option_title"
         />
     <RadioGroup
         android:id="@+id/radioGroup_aspectRatio"
@@ -33,23 +33,23 @@
             android:id="@+id/radioButton_ratio_34"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/margin_option_panel_bottomsheet"
             android:elevation="10dp"
             android:text="@string/camera_option_aspect_ratio_3_4"
             android:checked="true"
             android:textAlignment="center"
-            android:textSize="15sp"
+            android:textSize="@dimen/textsize_option_panel_bottomsheet_item"
             />
 
         <RadioButton
             android:id="@+id/radioButton_ratio_916"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/margin_option_panel_bottomsheet"
             android:elevation="10dp"
             android:text="@string/camera_option_aspect_ratio_9_16"
             android:textAlignment="center"
-            android:textSize="15sp" />
+            android:textSize="@dimen/textsize_option_panel_bottomsheet_item" />
 
 
 
@@ -57,10 +57,10 @@
             android:id="@+id/radioButton_ratio_11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/margin_option_panel_bottomsheet"
             android:elevation="10dp"
             android:text="@string/camera_option_aspect_ratio_1_1"
-            android:textSize="15sp"
+            android:textSize="@dimen/textsize_option_panel_bottomsheet_item"
             android:textAlignment="center"
 
             />
@@ -71,10 +71,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/camera_option_white_balance"
-        android:layout_margin="5dp"
+        android:layout_margin="@dimen/margin_option_panel_bottomsheet"
         android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textSize="@dimen/textsize_option_panel_bottomsheet_option_title"
         />
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -94,30 +94,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
+                android:textSize="@dimen/textsize_option_panel_bottomsheet_item"
                 android:text="@string/camera_option_white_balance_auto" />
 
             <RadioButton
                 android:id="@+id/radioButton_whitebalance_cloudy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_option_panel_bottomsheet_item"
                 android:text="@string/camera_option_white_balance_cloudy" />
 
             <RadioButton
                 android:id="@+id/radioButton_whitebalance_daylight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_option_panel_bottomsheet_item"
                 android:text="@string/camera_option_white_balance_daylight" />
 
             <RadioButton
                 android:id="@+id/radioButton_whitebalance_fluorescent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_option_panel_bottomsheet_item"
                 android:text="@string/camera_option_white_balance_fluorescent" />
 
             <RadioButton
                 android:id="@+id/radioButton_whitebalance_incandscent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_option_panel_bottomsheet_item"
                 android:text="@string/camera_option_white_balance_incandscent" />
 
         </RadioGroup>
@@ -129,10 +134,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/camera_option_timer_second"
-        android:layout_margin="5dp"
+        android:layout_margin="@dimen/margin_option_panel_bottomsheet"
         android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textSize="@dimen/textsize_option_panel_bottomsheet_option_title"
         />
     <RadioGroup
         android:layout_width="match_parent"
@@ -146,22 +151,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
+            android:textSize="@dimen/textsize_option_panel_bottomsheet_item"
             android:text="@string/camera_option_timer_second_3" />
 
         <RadioButton
             android:id="@+id/radioButton_timersec_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize_option_panel_bottomsheet_item"
             android:text="@string/camera_option_timer_second_5" />
 
         <RadioButton
             android:id="@+id/radioButton_timersec_10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize_option_panel_bottomsheet_item"
             android:text="@string/camera_option_timer_second_10" />
     </RadioGroup>
     
     <Space
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="@dimen/space_option_panel_bottomsheet_bottom" />
 </LinearLayout>

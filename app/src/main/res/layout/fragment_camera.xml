@@ -2,7 +2,6 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/coordinator_fragment_camera_root"
@@ -36,32 +35,32 @@
 
         <ImageButton
             android:id="@+id/btn_fragment_camera_open_gallary"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="@dimen/size_btn_middle_48"
+            android:layout_height="@dimen/size_btn_middle_48"
             android:layout_alignBottom="@+id/btn_fragment_camera_takepicture"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="10dp"
             android:adjustViewBounds="true"
             android:background="@drawable/selector_btn_circle_background"
             android:cropToPadding="true"
-            android:elevation="10dp"
+            android:elevation="@dimen/elevation_btn"
             android:gravity="bottom|left"
 
             android:padding="8dp"
             android:scaleType="centerInside"
             android:src="@android:drawable/ic_menu_gallery"
-            android:text="G" />
+            />
 
         <ImageButton
             android:id="@+id/btn_fragment_camera_takepicture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/size_btn_large_53"
+            android:layout_height="@dimen/size_btn_large_53"
 
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="@dimen/margin_camera_button_bottom"
             android:background="@drawable/selector_btn_circle_background"
-            android:elevation="10dp"
+            android:elevation="@dimen/elevation_btn"
             android:gravity="bottom|center_vertical"
             android:src="@drawable/baseline_camera_white_48" />
 
@@ -69,49 +68,49 @@
 
         <ImageButton
             android:id="@+id/btn_fragment_camera_more_option"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="@dimen/size_btn_small_36"
+            android:layout_height="@dimen/size_btn_small_36"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:layout_margin="10dp"
             android:background="@drawable/selector_btn_circle_background"
-            android:elevation="10dp"
+            android:elevation="@dimen/elevation_btn"
             android:src="@drawable/baseline_more_vert_white_18" />
 
         <ImageButton
             android:id="@+id/btn_fragment_camera_flash"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="@dimen/size_btn_small_36"
+            android:layout_height="@dimen/size_btn_small_36"
             android:layout_alignTop="@+id/btn_fragment_camera_more_option"
             android:layout_alignEnd="@+id/btn_fragment_camera_more_option"
             android:background="@drawable/selector_btn_circle_background"
             android:layout_marginEnd="46dp"
-            android:elevation="10dp"
+            android:elevation="@dimen/elevation_btn"
             android:src="@drawable/baseline_flash_auto_white_18" />
 
         <CheckBox
             android:id="@+id/checkbox_fragment_timer_activate"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="@dimen/size_btn_small_36"
+            android:layout_height="@dimen/size_btn_small_36"
             android:layout_alignTop="@+id/btn_fragment_camera_more_option"
             android:layout_alignEnd="@id/btn_fragment_camera_flash"
             android:layout_marginEnd="46dp"
             android:background="@drawable/selector_btn_circle_background"
             android:button="@drawable/selector_checkbox_timer_activate"
             android:checked="true"
-            android:elevation="10dp" />
+            android:elevation="@dimen/elevation_btn" />
 
 
         <CheckBox
             android:id="@+id/checkbox_fragment_camera_facing"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="@dimen/size_btn_small_36"
+            android:layout_height="@dimen/size_btn_small_36"
             android:layout_alignEnd="@id/checkbox_fragment_timer_activate"
             android:layout_alignTop="@+id/btn_fragment_camera_more_option"
             android:layout_marginEnd="46dp"
             android:background="@drawable/selector_btn_circle_background"
             android:button="@drawable/selector_fragment_camera_facing"
-            android:elevation="10dp" />
+            android:elevation="@dimen/elevation_btn" />
 
 
 
@@ -120,13 +119,13 @@
 
         <ImageButton
             android:id="@+id/btn_fragment_camera_rotate_picture"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="@dimen/size_btn_middle_48"
+            android:layout_height="@dimen/size_btn_middle_48"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_margin="10dp"
             android:background="@drawable/selector_btn_circle_background"
-            android:elevation="20dp"
+            android:elevation="@dimen/elevation_btn"
             android:src="@drawable/sharp_rotate_right_white_36" />
 
 <!-- End of Top Side-->
@@ -137,7 +136,7 @@
             android:layout_height="60dp"
             android:layout_centerInParent="true"
             android:background="@drawable/selector_btn_circle_background"
-            android:elevation="10dp"
+            android:elevation="@dimen/elevation_btn"
             android:text="8"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
@@ -155,10 +154,9 @@
         android:layout_height="wrap_content"
         android:background="#59FFFFFF"
         android:orientation="vertical"
-        android:paddingBottom="50dp"
+        android:paddingBottom="@dimen/padding_camera_option_panel"
         android:touchscreenBlocksFocus="false"
         app:behavior_hideable="true"
-
         app:behavior_peekHeight="0dp"
         app:layout_behavior="@string/bottom_sheet_behavior">
 
