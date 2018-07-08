@@ -56,8 +56,8 @@ public class PreviewResultFragment extends Fragment {
 
         mModifiedPhoto.setStartXY(new PointF(
                 mModifiedPhoto.getStartXY().x,
-                (float)( ((mModifiedPhoto.getStartXY().y -  (float)( (float)getResources().getDisplayMetrics().widthPixels*16.0/9.0 - (float)mCapturedBitmap.getHeight())/2.0)
-                        )
+                (float)( ((mModifiedPhoto.getStartXY().y -
+                        (float)( (float)getResources().getDisplayMetrics().widthPixels*16.0/9.0 - (float)mCapturedBitmap.getHeight())/2.0))
 
                 )
         ));

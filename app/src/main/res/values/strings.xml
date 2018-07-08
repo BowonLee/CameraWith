@@ -17,5 +17,6 @@
     <!-- StringValues for Gallary-->
     <string name="gallary_all_albums">All Photo</string>
 
-
+    <string name="kr_camera_progress_save_photo">사진 저장 중 입니다</string>
+    <string name="kr_camera_not_placed_photo">사진을 등록해 주세요</string>
 </resources>

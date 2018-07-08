@@ -180,7 +180,7 @@ public class MainPhotoDrawerView extends BasePhotoDrawerView implements View.OnT
 
                     if(Math.abs(mDistanceRateChange)>TOLERANCE_PINCH) {
                         float ratio = ((float) mPhotoBitmap.getWidth() - mDistanceRateChange / 2) / mModifiedPhoto.getOutSize().getWidth();
-                        if(ratio < 1.0&&calculateMaxSize(ratio)){ mModifiedPhoto.setRatio(ratio);}
+                        if(calculateMaxSize(ratio)){ mModifiedPhoto.setRatio(ratio);}
                         else{ Toast.makeText(getContext(),"max size",Toast.LENGTH_SHORT).show();}
                         this.postInvalidate();
 
