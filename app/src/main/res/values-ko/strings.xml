@@ -1,18 +1,8 @@
 <resources>
-    <string name="app_name">DearPhotographDebug</string>
+    <string name="app_name">CameraWith</string>
+
+
     <string name="request_caemra_permission">이 앱은 카메라, 파일 읽기, 쓰기 권한이 필요합니다. 플레이스토어의 개인정보처리방침 참고</string>
-    <string name="request_locate_permission">This app needs locate permission</string>
-    <string name="request_memory_permission">This app needs memory permission</string>
-
-    <!-- Crop Drawer navigator -->
-    <string name="crop_drawer_open">Open navigation drawer</string>
-    <string name="crop_drawer_close">Close navigation drawer</string>
-    <string name="crop_drawer_option_aspectratio">Aspect ratio is</string>
-
-
-
-    <!-- StringValues for intent-->
-    <string name ="parcelable_result">parcelable result</string>
 
     <!-- StringValues for UI-->
     <string name="gallary_all_albums">모든 사진</string>
