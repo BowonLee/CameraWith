@@ -16,7 +16,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="화면비"
+        android:text="@string/camera_option_aspect_ratio"
         android:layout_margin="5dp"
         android:textStyle="bold"
         android:textColor="@android:color/white"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:elevation="10dp"
-            android:text=" 3:4 "
+            android:text="@string/camera_option_aspect_ratio_3_4"
             android:checked="true"
             android:textAlignment="center"
             android:textSize="15sp"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:elevation="10dp"
-            android:text=" 9:16 "
+            android:text="@string/camera_option_aspect_ratio_9_16"
             android:textAlignment="center"
             android:textSize="15sp" />
 
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:elevation="10dp"
-            android:text=" 1:1 "
+            android:text="@string/camera_option_aspect_ratio_1_1"
             android:textSize="15sp"
             android:textAlignment="center"
 
@@ -70,7 +70,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="화이트 벨런스"
+        android:text="@string/camera_option_white_balance"
         android:layout_margin="5dp"
         android:textStyle="bold"
         android:textColor="@android:color/white"
@@ -94,31 +94,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="auto" />
+                android:text="@string/camera_option_white_balance_auto" />
 
             <RadioButton
                 android:id="@+id/radioButton_whitebalance_cloudy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="cloudy" />
+                android:text="@string/camera_option_white_balance_cloudy" />
 
             <RadioButton
                 android:id="@+id/radioButton_whitebalance_daylight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="daylight" />
+                android:text="@string/camera_option_white_balance_daylight" />
 
             <RadioButton
                 android:id="@+id/radioButton_whitebalance_fluorescent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="fluorescent" />
+                android:text="@string/camera_option_white_balance_fluorescent" />
 
             <RadioButton
                 android:id="@+id/radioButton_whitebalance_incandscent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="incandscent" />
+                android:text="@string/camera_option_white_balance_incandscent" />
 
         </RadioGroup>
     </HorizontalScrollView>
@@ -128,7 +128,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="타이머"
+        android:text="@string/camera_option_timer_second"
         android:layout_margin="5dp"
         android:textStyle="bold"
         android:textColor="@android:color/white"
@@ -146,19 +146,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="3sec " />
+            android:text="@string/camera_option_timer_second_3" />
 
         <RadioButton
             android:id="@+id/radioButton_timersec_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5sec" />
+            android:text="@string/camera_option_timer_second_5" />
 
         <RadioButton
             android:id="@+id/radioButton_timersec_10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10sec" />
+            android:text="@string/camera_option_timer_second_10" />
     </RadioGroup>
     
     <Space

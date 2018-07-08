@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">DearPhotographDebug</string>
+    <string name="request_caemra_permission">이 앱은 카메라, 파일 읽기, 쓰기 권한이 필요합니다. 플레이스토어의 개인정보처리방침 참고</string>
+    <string name="request_locate_permission">This app needs locate permission</string>
+    <string name="request_memory_permission">This app needs memory permission</string>
+
+    <!-- Crop Drawer navigator -->
+    <string name="crop_drawer_open">Open navigation drawer</string>
+    <string name="crop_drawer_close">Close navigation drawer</string>
+    <string name="crop_drawer_option_aspectratio">Aspect ratio is</string>
+
+
+
+    <!-- StringValues for intent-->
+    <string name ="parcelable_result">parcelable result</string>
+
+    <!-- StringValues for UI-->
+    <string name="gallary_all_albums">모든 사진</string>
+
+    <string name="camera_progress_save_photo">사진 저장 중 입니다</string>
+    <string name="camera_not_placed_photo">사진을 등록해 주세요</string>
+    <string name="main_back_button">한번 더 누르면 앱이 종료됩니다</string>
+
+    <string name="camera_option_aspect_ratio">화면비</string>
+    <string name="camera_option_white_balance">화이트 밸런스</string>
+    <string name="camera_option_timer_second">타이머</string>
+
+    <string name="camera_option_timer_second_3">3초</string>
+    <string name="camera_option_timer_second_5">5초</string>
+    <string name="camera_option_timer_second_10">10초</string>
+
+</resources>
