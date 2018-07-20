@@ -127,11 +127,16 @@ public class CameraFragment extends Fragment implements android.support.v4.app.L
         mRootLayout.addView(mProgressLoading,new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
     }
     private void startProgressImageCapture(){
-
-
         mProgressLoading.startProgress();
         mProgressLoading.setProgressText(getString(R.string.camera_progress_save_photo));
+        disableAllUI();
+    }
+    private void finishProgressImageCapture(){
+        mProgressLoading.endProgress();
+        enableAllUI();
+    }
 
+    private void disableAllUI(){
         mMainPhotoDrawerView.setOnTouchListener(null);
         for(ImageButton btn : mButtonGroup){
             btn.setVisibility(View.GONE);
@@ -139,21 +144,16 @@ public class CameraFragment extends Fragment implements android.support.v4.app.L
         for(CheckBox checkBox : mCheckBoxGroup){
             checkBox.setVisibility(View.GONE);
         }
-
-
     }
-    private void finishProgressImageCapture(){
-
-        //  mProgressBarLayout.setVisibility(View.GONE);
-        mProgressLoading.endProgress();
+    private void enableAllUI(){
         for(ImageButton btn : mButtonGroup){
             btn.setVisibility(View.VISIBLE);
         }
         for(CheckBox checkBox : mCheckBoxGroup){
             checkBox.setVisibility(View.VISIBLE);
         }
-    }
 
+    }
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void setOptions(Context context){
         mOptionData = new OptionData(context);
@@ -441,7 +441,7 @@ public class CameraFragment extends Fragment implements android.support.v4.app.L
                     mCameraView.capturePicture();
                 }
             };
-
+            disableAllUI();
             timer.start();
         }else{
             Toast.makeText(getActivity(),getString(R.string.camera_not_placed_photo) , Toast.LENGTH_SHORT).show();
