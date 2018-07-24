@@ -36,9 +36,10 @@ import io.fabric.sdk.android.Fabric;
 public class MainActivity extends AppCompatActivity implements CameraFragment.CameraInterface,
         OrientationHelper.OrientationChangeListener, PreviewResultFragment.PreviewResultInterface {
 
+    private static final int REQUEST_PERMISSION_CAMERA = 3;
+    private static final int REQUEST_PERMISSION_READ_STORAGE = 4;
+    private static final int REQUEST_PERMISSION_WRITE_STORAGE = 5;
 
-
-    private static final int REQUEST_CAMERA_PERMISSION = 1;
     private long mBackPressedTime = 0;
 
     private Sensor mAcellerometerSensor;
@@ -59,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-     //   Fabric.with(this, new Crashlytics());
 
         setRequestCameraPermission();
         mSensorOrientation = new OrientationHelper();
@@ -91,7 +91,6 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
 
     }
 
-    //sensor 가동 및 리스너
     private void setSensors(){
         mSensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
         mAcellerometerSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -118,29 +117,57 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
     private void setRequestCameraPermission(){
 
         if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            new ConfirmationDialog().show(getSupportFragmentManager(),"dialog");
+
+            new AlertDialog.Builder(this).setMessage(R.string.request_caemra_permission)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int which) {
+                            requestPermissions(new String[]{Manifest.permission.CAMERA},REQUEST_PERMISSION_CAMERA);
+                            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},REQUEST_PERMISSION_WRITE_STORAGE);
+                            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},REQUEST_PERMISSION_READ_STORAGE);
+                        }
+                    }).setCancelable(false).show();
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_CAMERA_PERMISSION) {
-            if (grantResults.length != 1 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
 
+
+        switch (requestCode){
+            case REQUEST_PERMISSION_CAMERA :
+            case REQUEST_PERMISSION_READ_STORAGE :
+            case REQUEST_PERMISSION_WRITE_STORAGE :
+            default : {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                } else{
+                    dialogPermissionDenied(permissions[0]); }
             }
-        } else {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+    }
+
+    private void dialogPermissionDenied(String permission){
+
+        if(checkCallingOrSelfPermission(permission)==PackageManager.PERMISSION_DENIED) {
+
+            new AlertDialog.Builder(this).setMessage(R.string.request_permission_re_needed).setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            }).setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface dialog) {
+                    finish();
+                }
+            }).setCancelable(false).show();
         }
     }
 
     @Override
     public void onPostTakePicture(Bitmap captureBitmap,ModifiedPhoto modifiedPhoto) {
-
-
         startPreviewResultFragment(captureBitmap,modifiedPhoto);
-
-
-
     }
 
     private void startPreviewResultFragment(Bitmap captureBitmap,ModifiedPhoto modifiedPhoto){
@@ -155,10 +182,7 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
 
         mFragmentTransaction.replace(R.id.main_container,mPreviewResultFragment).commit();
         mPreviewResultFragment.setPreviewResultInterface(this);
-
     }
-
-
 
 
     @Override
@@ -191,8 +215,6 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
 
         mFragmentTransaction.replace(R.id.main_container,mCameraFragment).commit();
         mCameraFragment.setOnCameraInterface(this);
-
-
     }
 
 
@@ -215,22 +237,14 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
 
                 itemOrientation = OrientationHelper.ORIENTATION_LANDSCAPE_REVERSE_ITEM;
             }
-
-
         }
         rotateItemsByOrientation(itemOrientation);
-
-
-
     }
     public void rotateItemsByOrientation(int roation){
         if(mCameraFragment.isVisible()){
             currentOrientation = roation;
         }
     }
-
-
-
 
     @Override
     public void onBackPressed() {
@@ -246,27 +260,6 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
     }
 
 
-    public static class ConfirmationDialog extends DialogFragment{
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            final Activity parent = getActivity();
-            return new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.request_caemra_permission))
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int which) {
-                            parent.requestPermissions(new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE},REQUEST_CAMERA_PERMISSION);
-                        }
-                    }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            if(parent != null){
-                                parent.finish();
-                            }
-                        }
-                    }).create();
 
-        }
-    }
 
 }
