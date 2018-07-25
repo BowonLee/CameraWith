@@ -116,7 +116,9 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void setRequestCameraPermission(){
 
-        if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+        if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED||
+                checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                ||checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
 
             new AlertDialog.Builder(this).setMessage(R.string.request_caemra_permission)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -139,9 +141,13 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
             case REQUEST_PERMISSION_READ_STORAGE :
             case REQUEST_PERMISSION_WRITE_STORAGE :
             default : {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                } else{
-                    dialogPermissionDenied(permissions[0]); }
+                try {
+                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                 } else{
+                     dialogPermissionDenied(permissions[0]); }
+                }catch (ArrayIndexOutOfBoundsException e){
+                    e.printStackTrace();
+                }
             }
         }
 
