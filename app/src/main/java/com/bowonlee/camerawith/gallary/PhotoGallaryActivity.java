@@ -61,10 +61,7 @@ public class PhotoGallaryActivity extends AppCompatActivity{
         super.onPause();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    private void checkPermission(){
-        checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE);
-    }
+ 
     private void setPhotoAdapter(){
         mPhotoAdapter = new PhotoAdapter(this,getString(R.string.gallary_all_albums));
         getLoaderManager().initLoader(0,null,mPhotoAdapter);
