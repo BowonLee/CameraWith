@@ -69,7 +69,6 @@ public class BasePhotoDrawerView extends View{
 
     protected void setCanvasRotate(int degree){
         this.rotateDegree = degree;
-
     }
     protected int getCanvasRotate(){return rotateDegree;}
     protected void setPhotoBitmap(){
