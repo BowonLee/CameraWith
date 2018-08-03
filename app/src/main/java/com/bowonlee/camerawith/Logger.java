@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
-
+import android.widget.Toast;
 public class Logger {
 
     /*
@@ -18,8 +18,12 @@ public class Logger {
         PackageManager packageManager = context.getPackageManager();
         try {
             ApplicationInfo applicationInfo = packageManager.getApplicationInfo(context.getPackageName(),0);
-            if(applicationInfo.flags == ApplicationInfo.FLAG_DEBUGGABLE){
-                debuggable = true;
+            debuggable = (0 != (applicationInfo.flags & ApplicationInfo.FLAG_DEBUGGABLE));
+
+            if(debuggable){
+                Toast.makeText(context,"debug",Toast.LENGTH_SHORT).show();}
+                else{
+                Toast.makeText(context,"release",Toast.LENGTH_SHORT).show();
             }
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();

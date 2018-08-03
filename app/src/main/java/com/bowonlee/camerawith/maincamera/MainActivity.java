@@ -7,6 +7,7 @@ import android.app.Dialog;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.hardware.Sensor;
@@ -69,7 +70,8 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
         mSensorOrientation.setOnOrientationListener(this);
         startCameraFragment();
         setFireBase();
-        Logger.e("tag","logtest");
+
+
 
     }
 
