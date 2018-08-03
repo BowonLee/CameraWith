@@ -1,9 +1,11 @@
 package com.bowonlee.camerawith.gallary;
 
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.bowonlee.camerawith.Manifest;
 import com.bowonlee.camerawith.R;
 
 import java.util.ArrayList;
@@ -56,8 +59,9 @@ public class PhotoGallaryActivity extends AppCompatActivity{
     @Override
     protected void onPause() {
         super.onPause();
-
     }
+
+ 
     private void setPhotoAdapter(){
         mPhotoAdapter = new PhotoAdapter(this,getString(R.string.gallary_all_albums));
         getLoaderManager().initLoader(0,null,mPhotoAdapter);
