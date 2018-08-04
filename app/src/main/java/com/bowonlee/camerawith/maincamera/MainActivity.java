@@ -7,6 +7,7 @@ import android.app.Dialog;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.hardware.Sensor;
@@ -19,9 +20,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bowonlee.camerawith.Logger;
 import com.bowonlee.camerawith.OrientationHelper;
 import com.bowonlee.camerawith.models.ModifiedPhoto;
 import com.bowonlee.camerawith.resultpreview.PreviewResultFragment;
@@ -61,11 +64,15 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
 
         setContentView(R.layout.activity_main);
 
+        Logger.checkDebuggable(this);
         setRequestCameraPermission();
         mSensorOrientation = new OrientationHelper();
         mSensorOrientation.setOnOrientationListener(this);
         startCameraFragment();
         setFireBase();
+
+
+
     }
 
     private void setFireBase(){
@@ -130,6 +137,9 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
                         }
                     }).setCancelable(false).show();
         }
+
+
+
     }
 
     @Override

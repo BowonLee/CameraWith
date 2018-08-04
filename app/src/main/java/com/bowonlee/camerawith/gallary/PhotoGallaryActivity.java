@@ -61,7 +61,7 @@ public class PhotoGallaryActivity extends AppCompatActivity{
         super.onPause();
     }
 
- 
+
     private void setPhotoAdapter(){
         mPhotoAdapter = new PhotoAdapter(this,getString(R.string.gallary_all_albums));
         getLoaderManager().initLoader(0,null,mPhotoAdapter);
