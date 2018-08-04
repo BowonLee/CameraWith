@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.bowonlee.camerawith.Logger;
 import com.bowonlee.camerawith.OrientationHelper;
+import com.bowonlee.camerawith.PermissionHelper;
 import com.bowonlee.camerawith.models.ModifiedPhoto;
 import com.bowonlee.camerawith.resultpreview.PreviewResultFragment;
 import com.bowonlee.camerawith.R;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
 
     FirebaseAnalytics mFirebaseAnalytics;
 
+    private PermissionHelper mPermissionHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,21 +69,20 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
         setContentView(R.layout.activity_main);
 
         Logger.checkDebuggable(this);
+        setOrientationListener();
+        setPermissionHelper();
         setRequestCameraPermission();
-        mSensorOrientation = new OrientationHelper();
-        mSensorOrientation.setOnOrientationListener(this);
         startCameraFragment();
         setFireBase();
 
-
-
     }
 
-    private void setFireBase(){
-
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+    private void setOrientationListener(){
+        mSensorOrientation = new OrientationHelper();
+        mSensorOrientation.setOnOrientationListener(this);
     }
-
+    private void setPermissionHelper(){ mPermissionHelper = new PermissionHelper(this); }
+    private void setFireBase(){ mFirebaseAnalytics = FirebaseAnalytics.getInstance(this); }
 
     private void hideUi(){
                     getWindow().getDecorView().setSystemUiVisibility(
@@ -98,14 +99,12 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
         hideUi();
         setSensors();
         if(mCameraFragment!=null){ setSensorListener(); }
-
     }
 
     private void setSensors(){
         mSensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
         mAcellerometerSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mMagneticSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
-
     }
 
     private void setSensorListener(){
@@ -125,53 +124,12 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.Ca
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void setRequestCameraPermission(){
-
-        if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED||
-                checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                ||checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
-
-            new AlertDialog.Builder(this).setMessage(R.string.request_caemra_permission)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int which) {
-                            requestPermissions(new String[]{Manifest.permission.CAMERA,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE},REQUEST_PERMISSION);
-                        }
-                    }).setCancelable(false).show();
-        }
+      mPermissionHelper.requestAllPermission();
     }
-
-
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-
-        if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED||
-                checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                ||checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            try {
-                    dialogPermissionDenied();
-            } catch (ArrayIndexOutOfBoundsException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
-
-    private void dialogPermissionDenied(){
-
-          new AlertDialog.Builder(this).setMessage(R.string.request_permission_re_needed).setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    finish();
-                }
-            }).setOnCancelListener(new DialogInterface.OnCancelListener() {
-                @Override
-                public void onCancel(DialogInterface dialog) {
-                    finish();
-                }
-            }).setCancelable(false).show();
-
+        mPermissionHelper.setRequestPermissionsResult();
     }
 
     @Override

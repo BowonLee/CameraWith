@@ -12,12 +12,28 @@ import android.support.annotation.RequiresApi;
 public class PermissionHelper {
     private Context context ;
 
-    PermissionHelper(Context context) {
+    public static int REQUEST_PERMISSIONS = 6;
+    public PermissionHelper(Context context) {
         this.context = context;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    private boolean checkAllPermissions(){
+    public void requestAllPermission(){
+        final Activity activity = (Activity)context;
+
+        if(!checkAllPermissions()){
+            new AlertDialog.Builder(context).setMessage(R.string.request_caemra_permission)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int which) {
+                            activity.requestPermissions(new String[]{Manifest.permission.CAMERA,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE},REQUEST_PERMISSIONS);
+                        }
+                    }).setCancelable(false).show();
+        }
+
+    }
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public boolean checkAllPermissions(){
 
         if (context.checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED||
                 context.checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
@@ -41,6 +57,14 @@ public class PermissionHelper {
             }
         }).setCancelable(false).show();
 
+    }
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public boolean setRequestPermissionsResult(){
+        if(!checkAllPermissions()){
+            dialogPermissionDenied();
+            return false;
+        }
+        return true;
     }
 
 
