@@ -4,7 +4,7 @@
 https://play.google.com/store/apps/details?id=com.bowonlee.camerawith
 
 ## Related Document in GoogleDrive 
-<a href="https://drive.google.com/open?id=1o7yDUmlM3dTZwtv_wVFlD38rgsWR8qx9" title="relatedDocument">Here are</a>
+<a href="https://drive.google.com/open?id=1o7yDUmlM3dTZwtv_wVFlD38rgsWR8qx9" title="relatedDocument">Here is</a>
 related documents are written in Korean.
 
 ## DESIGN LICENSE
