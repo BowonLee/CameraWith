@@ -20,6 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.bowonlee.camerawith.Manifest;
+import com.bowonlee.camerawith.PermissionHelper;
 import com.bowonlee.camerawith.R;
 
 import java.util.ArrayList;
@@ -35,29 +36,28 @@ public class PhotoGallaryActivity extends AppCompatActivity{
     private ArrayList<String> albumList;
     private Spinner mSpinnerAlbumList;
 
+    private PermissionHelper mPermissionHelper;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallary);
-
-        checkStoragePermission();
-
         mGridPhotoGallary = (RecyclerView) findViewById(R.id.gallary_recyclerview);
         mSpinnerAlbumList = (Spinner)findViewById(R.id.spinner_gallary_albumlist);
 
-        setPhotoAdapter();
+        checkPermission();
 
-        getLoaderManager().initLoader(0,null,mPhotoAdapter);
-        mGridPhotoGallary.setLayoutManager(new GridLayoutManager(null,3, LinearLayoutManager.VERTICAL,false));
-        mGridPhotoGallary.setAdapter(mPhotoAdapter);
 
-        getBucketDisplayList();
 
-        setSpinnerAlbumList();
+
     }
 
+    private void setGridlayout(){
+        mGridPhotoGallary.setLayoutManager(new GridLayoutManager(null,3, LinearLayoutManager.VERTICAL,false));
+
+
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -68,17 +68,24 @@ public class PhotoGallaryActivity extends AppCompatActivity{
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    private void checkStoragePermission(){
-        if(checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED
-                ||checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE ) == PackageManager.PERMISSION_DENIED){
-            requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_PERMISSION);
-        }
+    private void checkPermission(){
+      mPermissionHelper = new PermissionHelper(this);
+
+      if(!mPermissionHelper.checkAllPermissions()){
+          mPermissionHelper.requestAllPermission();
+      }else{
+          setGridlayout();
+          setPhotoAdapter();
+          getBucketDisplayList();
+          setSpinnerAlbumList();
+      }
+
     }
 
     private void setPhotoAdapter(){
         mPhotoAdapter = new PhotoAdapter(this,getString(R.string.gallary_all_albums));
         getLoaderManager().initLoader(0,null,mPhotoAdapter);
-
+        mGridPhotoGallary.setAdapter(mPhotoAdapter);
     }
 
 
@@ -91,9 +98,7 @@ public class PhotoGallaryActivity extends AppCompatActivity{
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 mPhotoAdapter.setAlbumName(parent.getItemAtPosition(position).toString());
                 getLoaderManager().restartLoader(0,null,mPhotoAdapter);
-
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -125,31 +130,16 @@ public class PhotoGallaryActivity extends AppCompatActivity{
         }
     }
 
-
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED
-                ||checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE ) == PackageManager.PERMISSION_DENIED){
-            dialogPermissionDenied();
-        }
-
+       if(mPermissionHelper.setRequestPermissionsResult()){
+           setGridlayout();
+           setPhotoAdapter();
+           getBucketDisplayList();
+           setSpinnerAlbumList();
+       }
     }
 
-    private void dialogPermissionDenied(){
 
-        new AlertDialog.Builder(this).setMessage(R.string.request_permission_re_needed).setPositiveButton("확인", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        }).setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                finish();
-            }
-        }).setCancelable(false).show();
-
-    }
 }
