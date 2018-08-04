@@ -19,11 +19,9 @@ public class Logger {
         try {
             ApplicationInfo applicationInfo = packageManager.getApplicationInfo(context.getPackageName(),0);
             debuggable = (0 != (applicationInfo.flags & ApplicationInfo.FLAG_DEBUGGABLE));
-
             if(debuggable){
-                Toast.makeText(context,"debug",Toast.LENGTH_SHORT).show();}
+                Toast.makeText(context,"Debug Mode Activate",Toast.LENGTH_SHORT).show();}
                 else{
-                Toast.makeText(context,"release",Toast.LENGTH_SHORT).show();
             }
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
